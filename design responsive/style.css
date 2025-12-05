@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #d3f4d1;
+    width: 300px;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar .profile img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.sidebar p {
+    font-size: 0.9em;
+}
+
+.sidebar h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.sidebar ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.main-content section {
+    margin-bottom: 20px;
+}
+
+.main-content h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.competences p {
+    margin: 5px 0;
+}
+
+.competences p::after {
+    content: '';
+    display: block;
+    height: 8px;
+    background: #4caf50;
+    width: 0;
+    border-radius: 4px;
+}
+
+.competences p:nth-child(1)::after { width: 85%; }
+.competences p:nth-child(2)::after { width: 80%; }
+.competences p:nth-child(3)::after { width: 75%; }
+.competences p:nth-child(4)::after { width: 70%; }
+
+/* Media Queries */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .sidebar .profile,
+    .sidebar .contact,
+    .sidebar .education,
+    .sidebar .skills {
+        flex: 1 1 45%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+    .sidebar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar .profile,
+    .sidebar .contact,
+    .sidebar .education,
+    .sidebar .skills {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .main-content img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Très petits mobiles */
+@media (max-width: 480px) {
+    .sidebar h2 {
+        font-size: 1.2em;
+    }
+
+    .sidebar h3 {
+        font-size: 1em;
+    }
+
+    .main-content h2 {
+        font-size: 1.1em;
+    }
+
+    .competences p::after {
+        height: 6px;
+    }
+}
